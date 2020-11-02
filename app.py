@@ -2,6 +2,7 @@ import http.server
 import json
 import urllib.request
 import re
+import time
 
 autores = [
 	{
@@ -37,6 +38,9 @@ class AutoresHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 		self.wfile.write(b"HTTP/1.1 200 OK\n")
 		self.wfile.write(b"\n")
 		self.wfile.write(response.encode())
+
+for autor in autores:
+  autor["s"] = time.strftime("%S")
 
 httpd = http.server.HTTPServer(("",8080), AutoresHTTPRequestHandler)
 httpd.serve_forever()

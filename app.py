@@ -38,5 +38,5 @@ class AutoresHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 		self.wfile.write(b"\n")
 		self.wfile.write(response.encode())
 
-httpd = http.server.HTTPServer(("",8081), AutoresHTTPRequestHandler)
+httpd = http.server.HTTPServer(("",8080), AutoresHTTPRequestHandler)
 httpd.serve_forever()
